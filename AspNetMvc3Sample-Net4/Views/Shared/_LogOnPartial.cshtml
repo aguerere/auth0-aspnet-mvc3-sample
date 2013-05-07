@@ -1,0 +1,8 @@
+﻿@if(Request.IsAuthenticated) {
+    <text>Welcome <strong>@User.Identity.Name</strong>!
+    [ @Html.ActionLink("Log Off", "LogOff", "Account") ]</text>
+}
+else {
+    <script src="https://sdk.auth0.com/auth0.js#client=@System.Configuration.ConfigurationManager.AppSettings["auth0:ClientId"]"></script>
+    <a href="javascript: window.Auth0.signIn({onestep: true})">Log On</a>
+}
